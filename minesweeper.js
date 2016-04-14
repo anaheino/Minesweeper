@@ -33,7 +33,7 @@ if(isNaN(miina) || miina > (nro*nro)) return;
 
 //poistetaan aiempi table
 document.getElementsByTagName('table')[0].remove();
-
+clicked = 0;
 //tyhjennetÃ¤Ã¤n aiemmat
 arr = [];
 arr2 = [];
@@ -150,8 +150,9 @@ function peliklik(e)
   {
   
   countmines(e.target.id);
-  if(+clicked+ +miina == (+maara * +maara)) youWon();
+  
   }
+   if(+clicked+ +miina >= (+nro * +nro)) youWon();
 
 }
 //lasketaan läheisten miinojen määrät.
@@ -196,6 +197,7 @@ function countmines(joku)
      input.value = maara.toString();
      replace.parentNode.replaceChild(input, replace );
      clicked++;
+
 }
 function youWon()
 {
